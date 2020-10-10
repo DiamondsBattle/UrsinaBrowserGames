@@ -1,0 +1,66 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>UrsinaCSS Game</title>
+    <!-- <script src="ursina/three.min.js"></script> -->
+    <script src="Brython-3.8.9/brython.js"></script>
+    <script src="Brython-3.8.9/brython_stdlib.js"></script>
+    <script>
+    window.onload = function() {
+        brython(1);
+    };
+    </script>
+</head>
+
+<style>
+
+.game {
+    margin:auto;
+    width:100%;
+    height:100%;
+    background-color: #000000;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    pointer-events: none;
+    font-size:1em;
+}
+/* desktop only */
+@media screen and (min-width: 768px) {
+    .game {
+        width: 1536px;
+        height: 864px;
+        font-size:3em;
+    }
+}
+
+</style>
+
+<body style="margin: 0;">
+    <div id="game" class="game">
+        <div id="loading_text" style="
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            color: white;
+            font-family:monospace;
+            transform: translate(-50%, -5%);
+            text-align: center;
+            ">
+            <p class="message">loading...<br><br><br><br><br><br><br></p>
+        Powered by Ursina Engine ʕ •ᴥ•ʔゝ□
+        </div>
+    </div>
+
+    <script src="main.py" type="text/python"></script>
+</body>
+</html>
+
+
+<!-- <script>
+(function(){var script=document.createElement('script');script.onload=function(){var stats=new Stats();document.body.appendChild(stats.dom);requestAnimationFrame(function loop(){stats.update();requestAnimationFrame(loop)});};script.src='//rawgit.com/mrdoob/stats.js/master/build/stats.min.js';document.head.appendChild(script);})()
+</script> -->
