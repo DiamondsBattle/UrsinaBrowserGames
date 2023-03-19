@@ -1,6 +1,10 @@
 from ursina import *
 from browser import timer
 
+player_models = {
+    'x': Entity(model='cube', texture='white_cube', color=color.orange),
+    'o': Entity(model='sphere', texture='earth', color=color.blue)
+}
 
 def on_click(b):
     global player
@@ -8,6 +12,7 @@ def on_click(b):
         return
     b.color = colors[player]
     b.text = player
+    player_models[player].position = b.position
     player = 'x' if player == 'o' else 'o'
     game_finished()
 
@@ -41,10 +46,11 @@ def game_finished():
         i.text = ''
 
 
-app = Ursinaa()
+app = Ursina()
 
-camera.fov = 4
-camera.position = (1, 1)
+camera.position = (2, 2, -8)
+camera.rotation_x = 30
+
 player = 'x'
 colors = {'x': color.orange,
           'o': color.blue}
@@ -57,5 +63,7 @@ for x in range(3):
         b.on_click = Func(on_click, b)
         player = 'o' if player == 'x' else 'x'
 
+player_models['x'].position = (-1, -1, 0)
+player_models['o'].position = (1, 1, 0)
 
 app.run()
